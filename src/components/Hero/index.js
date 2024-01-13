@@ -9,7 +9,7 @@ const Container = styled.div`
     align-items: start;
     justify-content: start;
     padding: 400px 100px 50px 200px;
-    
+    position: static;
     z-index: 1; /* Set z-index to make sure MemoContainer is above the overlay */
 
 `;
@@ -79,11 +79,25 @@ const Button = styled.a`
 `;
 
 const Hero = () => {
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      console.log(entry)
+      if (entry.isIntersecting) {
+        entry.target.classList.add('show');
+      } else {
+        entry.target.classList.remove('show');
+      }
+    })
+  })
+  const hiddenElements = document.querySelectorAll('.hidden')
+hiddenElements.forEach((el) => observer.observe(el));
+
   return (
     <div
       style={{
         width: '100%',
-        aspectRatio: '16/8',
+        aspectRatio: '1920/856',
         position: 'relative',
       }}
     >
@@ -98,9 +112,9 @@ const Hero = () => {
           filter: 'brightness(0.5)',
         }}
       ></div>
-        <Container>
+        <Container className='show'>
       <MemoContainer>
-        <Memo>Need to</Memo>
+        <Memo>Need to </Memo>
         <Memo2>Buy, Sell, or Invest</Memo2>
         <Memo3>in Real Estate?</Memo3>
       </MemoContainer>
