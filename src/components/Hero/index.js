@@ -112,7 +112,7 @@ hiddenElements.forEach((el) => observer.observe(el));
           filter: 'brightness(0.5)',
         }}
       ></div>
-        <Container className='show'>
+        <Container className='show' id='home'>
       <MemoContainer>
         <Memo>Need to </Memo>
         <Memo2>Buy, Sell, or Invest</Memo2>

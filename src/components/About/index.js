@@ -105,7 +105,7 @@ const About = () => {
     // hiddenElements.forEach((el) => observer.observe(el));
        
   return (
-    <Container className='show'>
+    <Container className='show' id='about'>
     <Top>65+ Years of Experience</Top>
     <Sub>Our team's extensive experience has been built on a foundation of unparalleled customer care. We are committed to providing you with a personalized, stress-free, and seamless real estate experience.</Sub>
     <SkillContainer>
