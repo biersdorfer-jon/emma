@@ -1,26 +1,14 @@
 import React from 'react'
 import styled from 'styled-components';
 
-var Carousel = require('react-responsive-carousel').Carousel;
-
-
-const Conatiner = styled.div`
-    width: 100%;
-    display: flex;
-    height: 100px;
-    background: white;
-    justify-content: center;
-    padding-top: 50px;
-`;
-
 const Card = styled.div`
-    width: 425px;
+    width: 375px;
     display: flex;
     justify-content: center;
     flex-direction: column;
-    height: 350px;
-    //border: 1px solid black;
-    border-radius: 6px 6px;
+    height: 300px;
+    margin-bottom: 15px;
+    border-radius: 10px 10px;
     -webkit-box-shadow: 0px 4px 5px 0px rgba(148,148,148,1);
 -moz-box-shadow: 0px 4px 5px 0px rgba(148,148,148,1);
 box-shadow: 0px 4px 5px 0px rgba(148,148,148,1);
@@ -29,10 +17,12 @@ const Bottom = styled.div`
 display: flex;
 flex-direction: row;
 width: 100%;
+padding: 3px;
+justify-content: space-between;
 `;
 
 const Left = styled.div`
-    width: 70%;
+    width: 100%;
     display: flex;
     flex-direction: column;
 `;
@@ -40,6 +30,7 @@ const Left = styled.div`
 const Right = styled.div`
     width: 30%;
     display: flex;
+    justify-content: end;
     
 `;
 
@@ -78,32 +69,29 @@ const Address = styled.div`
 `;
 
 const Logo = styled.img`
-    width: 100%;
-    height: 100%;
+    width: 80%;
     padding-top: 5px;
-    align-self: flex-end;
+    align-self: flex-start;
+    
 `;
 
 
-const List = () => {
+const ListCard = ({house}) => {
   return (
-    <Conatiner>
         <Card>
-            <Image src={require('../../images/house1.jpg')} />
+            <Image src={require(`../../images/${house.image}`)} />
             <Bottom>
                 <Left>
-            <Price>$325,000</Price>
-            <Details>6 bds | 6 ba | 2,932 sqft </Details>
-            <Address>13971 S 94th Ave E, Bixby, OK 74008
-</Address>
+            <Price>{house.price}</Price>
+            <Details>{house.details}</Details>
+            <Address>{house.address}</Address>
 </Left>
 <Right>
 <Logo src={require('../../images/kwprefer.png')} />
 </Right>
 </Bottom>
         </Card>
-    </Conatiner>
   )
 }
 
-export default List
+export default ListCard

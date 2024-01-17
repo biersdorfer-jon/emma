@@ -71,6 +71,7 @@ font-size: 110px;
 `;
 
 
+
 const Team = () => {
   return (
     <Container id='team'>

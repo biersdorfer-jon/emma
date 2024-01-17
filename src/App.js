@@ -6,7 +6,7 @@ import Hero from './components/Hero';
 import About from './components/About';
 import Team from './components/Team';
 import Members from './components/Members';
-import List from './components/List';
+import Slide from './components/Slider';
 
 
 const Body = styled.div`
@@ -25,7 +25,8 @@ function App() {
         <About />
         <Team />
         <Members />
-        <List />
+        <Slide />
+        <div style={{height: '100px',}}>Hey</div>
       </Body>
     </Router>
     );

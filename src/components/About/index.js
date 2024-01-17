@@ -1,7 +1,5 @@
 import React from 'react'
 import styled from 'styled-components';
-import { GrGroup } from "react-icons/gr";
-import feather from 'feather-icons';
 import Monitor from '../Icons/monitor';
 import Home from '../Icons/home';
 import Users from '../Icons/users';
@@ -85,10 +83,32 @@ const Desc = styled.div`
     height: 200px;
 `;
 
+const ImageContainer = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px 0px 20px;
 
+`;
 
+const AwardContainer = styled.div`
+    display: flex;
+    justify-content: center;
+    width: 70%;    
+    align-items: center;
+`;
+    
+const Award = styled.img`
+    width: 45%;
+`;
 
-
+const Sub2 = styled.div`
+    color: black;
+    font-size: 18px;
+    width: 50%;
+    text-align: center;
+    padding: 10px 0px;
+`;
 
 const About = () => {
     // const observer = new IntersectionObserver((entries) => {
@@ -108,6 +128,11 @@ const About = () => {
     <Container className='show' id='about'>
     <Top>65+ Years of Experience</Top>
     <Sub>Our team's extensive experience has been built on a foundation of unparalleled customer care. We are committed to providing you with a personalized, stress-free, and seamless real estate experience.</Sub>
+    <ImageContainer>
+        <Award src={require('../../images/realProdRed.png')}/>
+    </ImageContainer>
+    <Sub2>For the year of 2024, this team have earned their way to becoming one of the top 500 real estate agents in the Tulsa Metro through their MLS residential production in Tulsa County and the counties touching Tulsa County. </Sub2>
+
     <SkillContainer>
         <Skill>
         <IconContainer>
