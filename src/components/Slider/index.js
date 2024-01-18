@@ -13,6 +13,7 @@ const Slide = () => {
     speed: 600,
     slidesToShow: 4,
     slidesToScroll: 4,
+    width: '100%',
   };
 
   return (
