@@ -11,6 +11,7 @@ const Container = styled.div`
     align-items: center;    
     padding: 100px 0px;
     background: transparent;
+    flex-direction: column;
     position: relative; /* Add position: relative to the container */
     z-index: 1;`;
 
@@ -20,6 +21,7 @@ const CardConatiner = styled.div`
     width: 40%;
     align-items: center;
     gap: 50px;
+    flex-direction: row;
     
 `;
 
@@ -57,19 +59,32 @@ const Title = styled.div`
     padding-top: 10px;
 `;
 
-const Phone = styled.div`
+const Phone = styled.a`
 
 color: black;
 font-size: 20px;
 text-align: start;
+text-decoration: none;
+transition: all 0.3s ease;
+
+&:hover{
+    font-weight: 600;
+}
 
 `;
 
-const Email = styled.div`
+const Email = styled.a`
 
 color: black;
 font-size: 20px;
 text-align: center;
+text-decoration: none;
+transition: all 0.3s ease;
+
+&:hover{
+    font-weight: 600;
+    
+}
 `;
 
 const Job = styled.div`
@@ -111,7 +126,6 @@ const Button = styled.a`
 
     const ContactInfo = styled.div`
     position: absolute;
-    //transform: translateY(-50%);
     background: white;
     width: 260px;
     height: 300px;
@@ -119,24 +133,27 @@ const Button = styled.a`
     flex-direction: column;
     justify-content: center;
     gap: 50px;
-    
+    opacity: 0;
     align-items: center;
     border: 1px solid #B41010;
     border-radius: 12px 12px;
-    transition: transform 0.3s ease, width 0.3s ease;
+    transition: transform 0.3s ease, width 0.3s ease, opacity 0.4s ease; /* Add opacity transition */
 `;
 
 const ContactLeft = styled(ContactInfo)`
-left: calc(50% - 300px);
-width: ${props => (props.expanded ? '400px' : '260px')};
-padding-right: 20px;
+    left: calc(50% - 300px);
+    width: ${props => (props.expanded ? '400px' : '260px')};
+    opacity: ${props => (props.visibility ? '1' : '0')}; /* Use props.visibility here */
+    padding-right: 20px;
 `;
 
 const ContactRight = styled(ContactInfo)`
-right: calc(50% - 300px);
-width: ${props => (props.expanded ? '400px' : '260px')};
-padding-left: 20px;
+    right: calc(50% - 300px);
+    width: ${props => (props.expanded ? '400px' : '260px')};
+    opacity: ${props => (props.visibility ? '1' : '0')}; /* Use props.visibility here */
+    padding-left: 20px;
 `;
+
 
 const ContactTop = styled.div`
     display: flex;
@@ -179,18 +196,19 @@ const IconContainer = styled.div`
     }
 `;
 
+
 const Members = () => {
     const [showLeftContact, setShowLeftContact] = useState(false);
     const [showRightContact, setShowRightContact] = useState(false);
 
     const toggleLeftContact = () => {
         setShowLeftContact(!showLeftContact);
-        setShowRightContact(false);
+        //setShowRightContact(false);
     };
 
     const toggleRightContact = () => {
         setShowRightContact(!showRightContact);
-        setShowLeftContact(false);
+       // setShowLeftContact(true);
     };
 
   return (
@@ -233,16 +251,17 @@ const Members = () => {
                 </ButtonContainer>
             </Card>
             <ContactLeft
+                    visibility={showLeftContact}
                     expanded={showLeftContact}
-                    style={{ transform: showLeftContact ? 'translateX(-400px)' : 'translateX(0)' }}
+                    style={{ transform: showLeftContact ? 'translateX(-400px)' : 'translateX(0)'}}
                 >
                 <ContactTop>   
                 <IconContainer>
                     <Tel />
                 </IconContainer>
                 <PhoneSection>
-                <Phone>Mobile: (918) 519-1878</Phone>
-                <Phone>Office: (918) 251-2252</Phone>
+                <Phone href="tel:+19185191878">Mobile: (918) 519-1878</Phone>
+                <Phone href="tel:+19182512252">Office: (918) 251-2252</Phone>
                 </PhoneSection>
                 </ ContactTop>
                 <ContactBottom>
@@ -250,11 +269,12 @@ const Members = () => {
                     <Mail />
                 </IconContainer>
                 <PhoneSection>
-                <Email>tmccoy@kw.com</Email>
+                <Email href="mailto:tmccoy@kw.com">tmccoy@kw.com</Email>
                 </PhoneSection>
                 </ContactBottom>
                 </ContactLeft>
                 <ContactRight
+                    visibility={showRightContact}
                     expanded={showRightContact}
                     style={{ transform: showRightContact ? 'translateX(400px)' : 'translateX(0)' }}
                 >     
@@ -263,8 +283,8 @@ const Members = () => {
                     <Tel />
                 </IconContainer>
                 <PhoneSection>
-                <Phone>Mobile: (720) 490-3418</Phone>
-                <Phone>Office: (918) 251-2252</Phone>
+                <Phone href="+17204903418">Mobile: (720) 490-3418</Phone>
+                <Phone href="+19182512252">Office: (918) 251-2252</Phone>
                 </PhoneSection>
                 </ ContactTop>
                 <ContactBottom>
@@ -272,11 +292,12 @@ const Members = () => {
                     <Mail />
                 </IconContainer>
                 <PhoneSection>
-                <Email>ebiersdorfer@kw.com</Email>
+                <Email href="mailto:ebiersdorfer@kw.com">ebiersdorfer@kw.com</Email>
                 </PhoneSection>
                 </ContactBottom>
             </ContactRight>
             </CardConatiner>
+            
     </Container>
     </div>
   )

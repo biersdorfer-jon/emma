@@ -17,7 +17,7 @@ const Container = styled.div`
 `;
 
 const Top = styled.div`
-    font-size: 50px;
+    font-size: 55px;
     color: #B41010;
     font-weight: 800;
 
@@ -99,7 +99,7 @@ const AwardContainer = styled.div`
 `;
     
 const Award = styled.img`
-    width: 45%;
+    width: 35%;
 `;
 
 const Sub2 = styled.div`
@@ -127,6 +127,7 @@ const About = () => {
   return (
     <Container className='show' id='about'>
     <Top>65+ Years of Experience</Top>
+    
     <Sub>Our team's extensive experience has been built on a foundation of unparalleled customer care. We are committed to providing you with a personalized, stress-free, and seamless real estate experience.</Sub>
     <ImageContainer>
         <Award src={require('../../images/realProdRed.png')}/>

@@ -7,6 +7,8 @@ import About from './components/About';
 import Team from './components/Team';
 import Members from './components/Members';
 import Slide from './components/Slider';
+import ListHeader from './components/ListHeader';
+import Contact from './components/Contact';
 
 
 const Body = styled.div`
@@ -25,8 +27,9 @@ function App() {
         <About />
         <Team />
         <Members />
+        <ListHeader />
         <Slide />
-        <div style={{height: '100px',}}>Hey</div>
+        <Contact />
       </Body>
     </Router>
     );

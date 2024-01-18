@@ -4,13 +4,16 @@ import { GoArrowRight } from "react-icons/go";
 
 
 const Container =  styled.div`
-    width: 100%
+    width: 100%;
     height: 100px;
     display: flex;
+    // position: fixed;
+    z-index: 10;
     background-color: #ffffff;
     justify-content: space-between;
     align-items: center;
     padding: 0 120px;
+    border-bottom: 2px solid  #b41010
 
 `;
 const LogoContainer = styled.div`

@@ -2,16 +2,23 @@ import React from 'react'
 import styled from 'styled-components';
 
 const Card = styled.div`
-    width: 375px;
+    width: 280px;
     display: flex;
+    margin: 20px;
     justify-content: center;
     flex-direction: column;
-    height: 300px;
+    height: 250px;
     margin-bottom: 15px;
     border-radius: 10px 10px;
     -webkit-box-shadow: 0px 4px 5px 0px rgba(148,148,148,1);
 -moz-box-shadow: 0px 4px 5px 0px rgba(148,148,148,1);
 box-shadow: 0px 4px 5px 0px rgba(148,148,148,1);
+transition: all 0.5s ease;
+
+&:hover {
+    transform: translateY(-15px);
+}
+
 `;
 const Bottom = styled.div`
 display: flex;
@@ -61,7 +68,7 @@ const Details = styled.div`
 
 const Address = styled.div`
     font-weight: 400;
-    font-size: 16px;
+    font-size: 14px;
     justify-content: start;
     width: 100%;
     color: black;
@@ -69,7 +76,7 @@ const Address = styled.div`
 `;
 
 const Logo = styled.img`
-    width: 80%;
+    width: 100%;
     padding-top: 5px;
     align-self: flex-start;
     
