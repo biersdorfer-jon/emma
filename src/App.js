@@ -9,10 +9,11 @@ import Members from './components/Members';
 import Slide from './components/Slider';
 import ListHeader from './components/ListHeader';
 import Contact from './components/Contact';
+import Footer from './components/Footer';
 
 
 const Body = styled.div`
-background-color: silver;
+background-color: white;
 width: 100%;
 height: 100%;
 max-width: 100%;
@@ -31,6 +32,7 @@ function App() {
         <ListHeader />
         <Slide />
         <Contact />
+        <Footer />
       </Body>
     </Router>
     );

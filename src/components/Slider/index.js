@@ -9,7 +9,7 @@ import "./slick-theme.css";
 const Slide = () => {
   var settings = {
     dots: true,
-    infinite: false,
+    infinite: true,
     speed: 600,
     slidesToShow: 4,
     slidesToScroll: 4,
