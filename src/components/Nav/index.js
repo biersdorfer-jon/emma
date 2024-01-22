@@ -7,13 +7,21 @@ const Container =  styled.div`
     width: 100%;
     height: 100px;
     display: flex;
-    // position: fixed;
+     // position: fixed;
     z-index: 10;
     background-color: #ffffff;
     justify-content: space-between;
     align-items: center;
     padding: 0 120px;
-    border-bottom: 2px solid  #b41010
+    border-bottom: 2px solid  #b41010;
+
+    @media (max-width: 1450px) {
+        padding: 0 60px;
+    }
+
+    @media (max-width: 1000px) {
+        padding: 0 30px;
+    }
 
 `;
 const LogoContainer = styled.div`
@@ -23,6 +31,16 @@ justify-content: center;
 width: 60%;
 height: 100%;
 padding: 0 6px;
+
+@media (max-width: 1450px) {
+    width: 40%;
+}
+
+@media (max-width: 1000px) {
+    width: 30%;
+}
+
+
 `;
 
 const Logo = styled.img`
@@ -32,6 +50,9 @@ display: flex;
 cursor: pointer;
 text-decoration: none;
 align-items: center;
+
+
+
 `;
 
 const NavItems = styled.div`
@@ -40,6 +61,18 @@ const NavItems = styled.div`
     align-items: center;
     width: 100%;
     padding: 6px 10%;
+
+    @media (max-width: 1450px) {
+        padding: 6px 40px;
+    }
+
+    @media (max-width: 1000px) {
+        padding: 6px 40px;
+    }
+
+    @media (max-width: 800px) {
+        padding: 6px 20px;
+    }
 
 `;
 
@@ -55,6 +88,10 @@ const Tags = styled.a`
         transform: scale(1.05);
     }
 
+    @media (max-width: 1000px) {
+        font-size: 16px;
+    }
+
 `;
 
 const ButtonContainer = styled.div`
@@ -63,6 +100,14 @@ const ButtonContainer = styled.div`
     align-items: center;
     width: 60%;
     height: 100%;
+
+    @media (max-width: 1450px) {
+        width: 40%;
+    }
+
+    @media (max-width: 1000px) {
+        width: 30%;
+    }
 
 `;
 

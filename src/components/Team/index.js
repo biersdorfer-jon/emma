@@ -8,6 +8,7 @@ display: flex;
     width: 100%;
     background: white;
     padding: 40px 0px;
+
     `;
 
 const Top = styled.div`
@@ -17,11 +18,19 @@ const Top = styled.div`
     width: 100%;
     gap: 10px;
     padding: 0px 50px;
+
+    @media (max-width: 1400px) {
+        padding: 20px 0px;
+    }
 `;
 const Image = styled.img`
 width: 40%;
 text-decoration: none;
 align-items: center;
+
+@media (max-width: 1200px) {
+    display: none;
+}
 `;
 
 const TextContainer = styled.div`
@@ -30,11 +39,11 @@ const TextContainer = styled.div`
     height: 330px;
     justify-content: center;
     gap: 10px;
-    padding: 0px 20px;
+    padding: 0px 0px 0px 20px;
     `;
 
 const Title = styled.div`
-    font-size: 110px;
+    font-size: 90px;
     font-weight: 800;
     display: flex;
     align-items: center;
@@ -46,7 +55,7 @@ const Title = styled.div`
 `;
 
 const Bold = styled.div`
-font-size: 110px;
+font-size: 90px;
     font-weight: 900;
     display: flex;
     align-items: center;
@@ -57,7 +66,7 @@ font-size: 110px;
 `;
 
 const Meet = styled.div`
-font-size: 110px;
+font-size: 90px;
     font-weight: 900;
     display: flex;
     align-items: center;

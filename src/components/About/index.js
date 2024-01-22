@@ -80,7 +80,7 @@ const Desc = styled.div`
     text-align: center;
     font-size: 16px;
     width: 350px;
-    height: 200px;
+    height: 150px;
 `;
 
 const ImageContainer = styled.div`

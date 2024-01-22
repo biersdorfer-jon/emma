@@ -154,7 +154,7 @@ const Contact = () => {
 
   return (
     <Container id='contact'>
-      <Circle  />
+      <Circle />
       <InnerContainer>
       
       <ContactContainer>
@@ -162,7 +162,7 @@ const Contact = () => {
         <Heading>Get In Touch With Us</Heading>
         <SubHead>Fill out the form below and we will reach out as soon as we can.</SubHead>
         <form ref={form} onSubmit={sendEmail}>
-          <Input placeholder="Full Name"type="text" name="from_name" required />
+          <Input placehol der="Full Name"type="text" name="from_name" required />
           <Input placeholder='Email Address' type="email" name="from_email" required />
           <Message placeholder='Message' name="message"  required/>
           <Button type="submit" value="Send" />

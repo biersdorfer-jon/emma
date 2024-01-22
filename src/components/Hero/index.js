@@ -8,10 +8,11 @@ const Container = styled.div`
     height: 800px;
     align-items: start;
     justify-content: start;
-    padding: 400px 100px 50px 200px;
+    padding: 400px 100px 50px 11%;
     position: static;
     z-index: 1; /* Set z-index to make sure MemoContainer is above the overlay */
 
+    @media (max-width: )
 `;
 
 const MemoContainer = styled.div`
