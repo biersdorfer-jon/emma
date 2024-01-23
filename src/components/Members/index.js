@@ -18,10 +18,14 @@ const Container = styled.div`
 const CardConatiner = styled.div`
     display: flex;
     justify-content: center;
-    width: 40%;
+    width: 750px;
     align-items: center;
     gap: 50px;
     flex-direction: row;
+
+    @media (max-width: 1450px) {
+        flex-direction: column;
+    }
     
 `;
 
@@ -117,6 +121,7 @@ const Button = styled.a`
     border-radius: 6px 6px;
     font-size: 15px;
 
+
     &:hover {
         background-color: transparent;
         border: 1px solid #B41010;
@@ -127,31 +132,64 @@ const Button = styled.a`
     const ContactInfo = styled.div`
     position: absolute;
     background: white;
-    width: 260px;
+    width: 300px;
     height: 300px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     gap: 50px;
-    opacity: 0;
+    opacity: 1;
     align-items: center;
     border: 1px solid #B41010;
     border-radius: 12px 12px;
-    transition: transform 0.3s ease, width 0.3s ease, opacity 0.4s ease; /* Add opacity transition */
+    transition: transform 0.3s ease, width 0.3s ease, opacity 0.4s ease, z-index 0.3s ease; /* Add opacity transition */
+
+    @media (max-width: 1450px) {
+        gap: 10px;
+        height: 220px;
+        border: none;
+
+    }
 `;
 
 const ContactLeft = styled(ContactInfo)`
     left: calc(50% - 300px);
     width: ${props => (props.expanded ? '400px' : '260px')};
-    opacity: ${props => (props.visibility ? '1' : '0')}; /* Use props.visibility here */
+    opacity: ${props => (props.visibility ? '1' : '0')}; /* Use props.visibility here */\
+    transform: ${props => (props.move ? 'translateX(-400px)' : 'translateX(0)')};
     padding-right: 20px;
+    
+
+
+    @media (max-width: 1450px) {
+        top: calc(12%);
+        width: ${props => (props.expanded ? '290px' : '250px')};
+        transform: ${props => (props.move ? 'translateY(0px)' : 'translateY(0)')};
+        z-index: ${props => (props.level ? '9' : '0')};
+        left: calc(50% - 145px);
+        padding-right: 0px;
+    }
+
 `;
 
 const ContactRight = styled(ContactInfo)`
     right: calc(50% - 300px);
+    
     width: ${props => (props.expanded ? '400px' : '260px')};
     opacity: ${props => (props.visibility ? '1' : '0')}; /* Use props.visibility here */
+    transform: ${props => (props.move ? 'translateX(400px)' : 'translateX(0)')};
     padding-left: 20px;
+
+
+    @media (max-width: 1450px) {
+        top: calc(53%);
+        width: ${props => (props.expanded ? '290px' : '250px')};
+        transform: ${props => (props.move ? 'translateY(0px)' : 'translateY(0)')};
+        z-index: ${props => (props.level ? '9' : '0')};
+        right: calc(50% - 145px);
+        padding-left: 0px;
+        
+    }
 `;
 
 
@@ -162,6 +200,10 @@ const ContactTop = styled.div`
     background: white;
     width: 100%;
     gap: 10px;
+
+    @media (max-width: 1450px) {
+        flex-direction: column;
+    }
 `;
 
 const ContactBottom = styled.div`
@@ -171,6 +213,10 @@ const ContactBottom = styled.div`
     background: white;
     width: 100%;
     gap: 10px;
+
+    @media (max-width: 1450px) {
+        flex-direction: column;
+    }
 `;
 
 const PhoneSection = styled.div`
@@ -178,6 +224,10 @@ const PhoneSection = styled.div`
     flex-direction: column;
     background: white;
     align-items: start; /* Align items to the start */
+
+    @media (max-width: 1450px) {
+        align-items: center;
+    }
 `;
 
 const IconContainer = styled.div`
@@ -196,6 +246,23 @@ const IconContainer = styled.div`
     }
 `;
 
+
+const BackgroundImage = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 500px;
+  background-image: url(${require('../../images/Kw.jpg')});
+  background-size: contain;
+  background-position: center;
+  filter: brightness(0.5);
+
+  @media (max-width: 1450px) {
+    height: 850px;
+    background-size: fit;
+  }
+`;
 
 const Members = () => {
     const [showLeftContact, setShowLeftContact] = useState(false);
@@ -219,17 +286,8 @@ const Members = () => {
         position: 'relative',
       }}
     >
-      <div
-        style={{
-          position: 'absolute',
-          top: 0,
-          left: 0,
-          width: '100%',
-          height: '500px',
-          backgroundImage: `url(${require('../../images/Kw.jpg')})`,
-          filter: 'brightness(0.5)',
-        }}
-      ></div>
+     <BackgroundImage />
+
     <Container>
         <CardConatiner>
             <Card>
@@ -253,10 +311,11 @@ const Members = () => {
             <ContactLeft
                     visibility={showLeftContact}
                     expanded={showLeftContact}
-                    style={{ transform: showLeftContact ? 'translateX(-400px)' : 'translateX(0)'}}
+                    move = {showLeftContact}
+                    level = {showLeftContact}
                 >
                 <ContactTop>   
-                <IconContainer>
+                <IconContainer> 
                     <Tel />
                 </IconContainer>
                 <PhoneSection>
@@ -276,7 +335,8 @@ const Members = () => {
                 <ContactRight
                     visibility={showRightContact}
                     expanded={showRightContact}
-                    style={{ transform: showRightContact ? 'translateX(400px)' : 'translateX(0)' }}
+                    move = {showRightContact}
+                    level = {showRightContact}
                 >     
                 <ContactTop>   
                 <IconContainer>

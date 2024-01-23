@@ -14,6 +14,14 @@ const Container = styled.div`
     width: 100%;
     background: white;
     padding-top: 40px;
+
+    @media (max-width: 1552px) {
+        padding: 40px 200px 0px;
+    }
+
+    @media (max-width: 1275px) {
+        padding: 40px;
+    }
 `;
 
 const Top = styled.div`
@@ -81,6 +89,12 @@ const Desc = styled.div`
     font-size: 16px;
     width: 350px;
     height: 150px;
+
+    @media (max-width: 1500px) {
+        width: 400px;   
+    }
+
+    
 `;
 
 const ImageContainer = styled.div`
