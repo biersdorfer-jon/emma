@@ -40,6 +40,16 @@ const TextContainer = styled.div`
     justify-content: center;
     gap: 10px;
     padding: 0px 0px 0px 20px;
+
+    @media (max-width: 1200px) {
+        height: 130px;
+    }
+
+    @media (max-width: 720px) {
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 40px;
+    }
     `;
 
 const Title = styled.div`
@@ -61,6 +71,14 @@ const Title = styled.div`
         font-size: 110px;
     }
 
+    @media (max-width: 920px) {
+        font-size: 90px;
+    }
+
+    @media (max-width: 720px) {
+        line-height: 1.3;
+    }
+
 `;
 
 const Bold = styled.div`
@@ -79,6 +97,13 @@ font-size: 110px;
 
     @media (max-width: 1200px) {
         font-size: 110px;
+    }
+    @media (max-width: 920px) {
+        font-size: 90px;
+    }
+
+    @media (max-width: 720px) {
+        line-height: .5;
     }
 
 `;
@@ -101,7 +126,13 @@ font-size: 110px;
     @media (max-width: 1200px) {
         font-size: 110px;
     }
-
+    @media (max-width: 920px) {
+        font-size: 90px;
+    }
+    
+    @media (max-width: 720px) {
+        line-height: .5;
+    }
 
 `;
 

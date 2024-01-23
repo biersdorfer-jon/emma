@@ -28,6 +28,7 @@ const Top = styled.div`
     font-size: 55px;
     color: #B41010;
     font-weight: 800;
+    text-align: center
 
 
 `;
@@ -37,7 +38,7 @@ const Sub = styled.div`
     font-size: 20px;
     width: 60%;
     text-align: center;
-    padding: 10px 0px;
+    padding: 20px 0px 10px;
 `;
 
 const SkillContainer = styled.div`

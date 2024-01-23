@@ -25,7 +25,7 @@ const InnerContainer = styled.div`
   background: white;
 
   @media (max-width: 970px) {
-    width:400px;
+    width: 500px;
   }
 `;
 
@@ -39,8 +39,13 @@ const Circle = styled.div`
   background: linear-gradient(90deg, rgba(255,152,152,1) 0%, rgba(180,16,16,1) 100%);
 
   @media (max-width: 970px) {
-    width: 700px;
-    height: 500px;
+    width: 750px;
+    height: 1000px;
+  }
+
+  @media (max-width: 600px) {
+    width: 650px;
+    height: 800px;
   }
 `;
 
@@ -50,6 +55,10 @@ const ContactContainer = styled.div`
   width: 100%;
   padding: 50px 0px;
 
+  @media (max-width: 970px) {
+    padding: 20px 0px;
+  }
+
 `;
 
 const ImageContainer = styled.div`
@@ -58,6 +67,10 @@ const ImageContainer = styled.div`
   justify-content: flex-end;
   align-items: center;
   padding-right: 30px;
+
+  @media (max-width: 600px) {
+    display:none
+  }
 `;
 
 const Image = styled.img`

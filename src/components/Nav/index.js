@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { GoArrowRight } from "react-icons/go";
+import './nav.css';
 
 
 const Container =  styled.div`
@@ -74,6 +75,10 @@ const NavItems = styled.div`
         padding: 6px 20px;
     }
 
+    @media (max-width: 768px) {
+        display: none;
+    }
+
 `;
 
 const Tags = styled.a`
@@ -109,6 +114,10 @@ const ButtonContainer = styled.div`
         width: 30%;
     }
 
+    @media (max-width: 768px) {
+        display: none;
+    }
+
 `;
 
 const Button = styled.a`
@@ -138,6 +147,16 @@ const Button = styled.a`
 
 
 const Nav = () => {
+
+    function openNav() {
+        document.getElementById("myNav").style.width = "100%";
+      }
+      
+      function closeNav() {
+        document.getElementById("myNav").style.width = "0%";
+      }
+
+
   return (
     <Container>
     <LogoContainer>
@@ -149,6 +168,18 @@ const Nav = () => {
             <Tags href='#team'>Meet the Team</Tags>
             <Tags href='#list'>Top Listings</Tags>
         </NavItems>
+            <div id="myNav" class="overlay">
+                <a href="" class="closebtn" onClick={closeNav}>&times;</a>
+                <div class="overlay-content">
+                    <a href="#about" onClick={closeNav}>About</a>
+                    <a href="#home" onClick={closeNav}>Home</a>
+                    <a href="#team" onClick={closeNav}>Meet the Team</a>
+                    <a href="#list" onClick={closeNav}>Top Listings</a>
+                    <a href="#contact" class="contact" onClick={closeNav}>Contact Us</a>
+
+                </div>
+            </div>
+            <span style={{cursor: 'pointer',}} onClick={openNav}>&#9776;</span>
         <ButtonContainer>
             <Button href='#contact'>Contact Us <GoArrowRight/></Button>
         </ButtonContainer>

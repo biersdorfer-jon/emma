@@ -168,6 +168,8 @@ const ContactLeft = styled(ContactInfo)`
         z-index: ${props => (props.level ? '9' : '0')};
         left: calc(50% - 145px);
         padding-right: 0px;
+        background-color: rgba(255, 255, 255, 0.6); /* Transparent white background */
+  backdrop-filter: blur(8px);
     }
 
 `;
@@ -188,6 +190,8 @@ const ContactRight = styled(ContactInfo)`
         z-index: ${props => (props.level ? '9' : '0')};
         right: calc(50% - 145px);
         padding-left: 0px;
+        background-color: rgba(255, 255, 255, 0.7); /* Transparent white background */
+  backdrop-filter: blur(9px);
         
     }
 `;
@@ -197,7 +201,7 @@ const ContactTop = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    background: white;
+    //background: white;
     width: 100%;
     gap: 10px;
 
@@ -210,7 +214,7 @@ const ContactBottom = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    background: white;
+    //background: white;
     width: 100%;
     gap: 10px;
 
@@ -222,7 +226,7 @@ const ContactBottom = styled.div`
 const PhoneSection = styled.div`
     display: flex;
     flex-direction: column;
-    background: white;
+    //background: white;
     align-items: start; /* Align items to the start */
 
     @media (max-width: 1450px) {
