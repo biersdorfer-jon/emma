@@ -42,13 +42,17 @@ const TextContainer = styled.div`
     padding: 0px 0px 0px 20px;
 
     @media (max-width: 1200px) {
-        height: 130px;
+        height: 150px;
+        padding: 0px;
+        padding-top: 20px;
     }
 
     @media (max-width: 720px) {
         flex-direction: column;
         align-items: center;
         margin-bottom: 40px;
+        padding: 0px;
+        padding-top: 20px;
     }
     `;
 

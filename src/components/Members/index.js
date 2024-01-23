@@ -169,7 +169,8 @@ const ContactLeft = styled(ContactInfo)`
         left: calc(50% - 145px);
         padding-right: 0px;
         background-color: rgba(255, 255, 255, 0.6); /* Transparent white background */
-  backdrop-filter: blur(8px);
+        backdrop-filter: blur(9px);
+        -webkit-backdrop-filter: blur(9px);
     }
 
 `;
@@ -191,8 +192,8 @@ const ContactRight = styled(ContactInfo)`
         right: calc(50% - 145px);
         padding-left: 0px;
         background-color: rgba(255, 255, 255, 0.7); /* Transparent white background */
-  backdrop-filter: blur(9px);
-        
+        backdrop-filter: blur(9px);
+        -webkit-backdrop-filter: blur(9px);
     }
 `;
 
