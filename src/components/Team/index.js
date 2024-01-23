@@ -73,7 +73,7 @@ font-size: 110px;
     padding-left: 10px;
     color: #B41010;
 
-    @media (max-width: 1650px) {
+    @media (max-width: 1650px) { 
         font-size: 90px;
     }
 
