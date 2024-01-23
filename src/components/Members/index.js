@@ -168,7 +168,7 @@ const ContactLeft = styled(ContactInfo)`
         z-index: ${props => (props.level ? '9' : '0')};
         left: calc(50% - 145px);
         padding-right: 0px;
-        background-color: rgba(255, 255, 255, 0.6); /* Transparent white background */
+        background-color: rgba(255, 255, 255, 0.9); /* Transparent white background */
         backdrop-filter: blur(9px);
         -webkit-backdrop-filter: blur(9px);
     }
@@ -191,7 +191,7 @@ const ContactRight = styled(ContactInfo)`
         z-index: ${props => (props.level ? '9' : '0')};
         right: calc(50% - 145px);
         padding-left: 0px;
-        background-color: rgba(255, 255, 255, 0.7); /* Transparent white background */
+        background-color: rgba(255, 255, 255, 0.9); /* Transparent white background */
         backdrop-filter: blur(9px);
         -webkit-backdrop-filter: blur(9px);
     }
@@ -299,8 +299,6 @@ const Members = () => {
                 <Image src={require('../../images/todd - Copy.png')} />
                 <Title>Todd McCoy</Title>
                 <Job>Real Estate Agent</Job>
-                {/* <Phone>919191922121</Phone>
-                <Email>tmccoy@kw.com</Email> */}
                 <ButtonContainer>
                     <Button onClick={toggleLeftContact}>Show Contacts</Button>
                 </ButtonContainer>
@@ -348,8 +346,8 @@ const Members = () => {
                     <Tel />
                 </IconContainer>
                 <PhoneSection>
-                <Phone href="+17204903418">Mobile: (720) 490-3418</Phone>
-                <Phone href="+19182512252">Office: (918) 251-2252</Phone>
+                <Phone href="tel:+17204903418">Mobile: (720) 490-3418</Phone>
+                <Phone href="tel:+19182512252">Office: (918) 251-2252</Phone>
                 </PhoneSection>
                 </ ContactTop>
                 <ContactBottom>
