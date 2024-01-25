@@ -262,10 +262,10 @@ const BackgroundImage = styled.div`
   left: 0;
   width: 100%;
   height: 500px;
-  background-image: url(${require('../../images/Kw.jpg')});
+  background-image: url(${require('../../images/Kw2.png')});
   background-size: contain;
   background-position: center;
-  filter: brightness(0.5);
+  filter: brightness(0.7);
 
   @media (max-width: 1450px) {
     height: 850px;

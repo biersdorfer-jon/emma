@@ -55,9 +55,10 @@ const Circle = styled.div`
   border-radius: 50%;
   width: 1300px;
   height: 900px;
-  overflow: hidden;
-  background: rgb(255,152,152);
-  background: linear-gradient(90deg, rgba(255,152,152,1) 0%, rgba(180,16,16,1) 100%);
+  background-image: url(${require('../../images/Kw2.png')});
+  filter: brightness(0.8);
+  // background: rgb(255,152,152);
+  // background: linear-gradient(90deg, rgba(255,152,152,1) 0%, rgba(180,16,16,1) 100%);
 
   @media (max-width: 1502px) {
     width: 95%;
@@ -76,6 +77,13 @@ const Circle = styled.div`
   @media (max-width: 700px) {
     height: 800px;
     border-radius: 0%;
+    width: 100%;
+  }
+
+  @media (max-width: 600px) {
+    height: 650px;
+    border-radius: 0%;
+    width: 100%;
   }
 `;
 
@@ -114,6 +122,11 @@ color: #b41010;
 font-size: 28px;
 font-weight: 700;
 width: 60%;
+display: flex;
+
+@media (max-width: 600px) {
+  text-align: center;
+}
 
 `;
 
@@ -126,6 +139,10 @@ const SubHead = styled.div`
   padding-top: 8px;
   justify-content: center;
   align-items: flex-start;
+
+  @media (max-width: 600px) {
+    text-align: center;
+  }
 `;
 
 
