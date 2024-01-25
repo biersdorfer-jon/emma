@@ -17,6 +17,11 @@ const Container = styled.div`
       align-items: center;
       padding: 350px 0px 50px 0px;
     }
+
+    @media (max-width: 400px) {
+      align-items: center;
+      padding: 230px 0px 50px 0px;
+    }
     
 `;
 
@@ -142,6 +147,19 @@ const Hero = () => {
   })
   const hiddenElements = document.querySelectorAll('.hidden')
 hiddenElements.forEach((el) => observer.observe(el));
+
+// Dynamically set the height of the image based on screen width
+const setHeight = () => {
+  const imageContainer = document.getElementById('home'); // Adjust the ID based on your container ID
+  if (imageContainer) {
+    const screenWidth = window.innerWidth;
+    const imageHeight = screenWidth <= 400 ? 600 : 800; // Adjust the height values as needed
+    imageContainer.style.height = `${imageHeight}px`;
+  }
+};
+
+setHeight(); // Set initial height
+window.addEventListener('resize', setHeight); 
 
   return (
     <div

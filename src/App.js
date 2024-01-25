@@ -31,7 +31,7 @@ function App() {
         <Members />
         <ListHeader />
         <Slide />
-        {/* <Contact /> */}
+        {/* <Contact />  */}
         <Footer />
       </Body>
     </Router>

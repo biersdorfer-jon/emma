@@ -44,7 +44,7 @@ const TextContainer = styled.div`
     @media (max-width: 1200px) {
         height: 150px;
         padding: 0px;
-        padding-top: 20px;
+        padding-top: 0px;
     }
 
     @media (max-width: 720px) {
@@ -140,6 +140,33 @@ font-size: 110px;
 
 `;
 
+const Line = styled.div`
+
+    display: none;
+    width: 45%;
+    justify-content: center;
+    height: 150px;
+    border-bottom: 2px solid #b41010;
+    position: absolute;
+    margin-left: 30px;
+
+
+    @media (max-width: 1200px) {
+        display: flex;
+        width: 70%;
+        margin-left: 0px;
+    }
+    @media (max-width: 920px) {
+        height: 120px;
+        width: 80%;
+        margin-left: 0px;
+    }
+
+    @media (max-width: 720px) {
+        display: none;
+    }
+    
+`;
 
 
 const Team = () => {
@@ -151,6 +178,7 @@ const Team = () => {
         <Meet>Meet</Meet><Title>The</Title><Bold>Team</Bold>
         </TextContainer>
     </Top>
+    <Line />
     </Container>
   )
 }

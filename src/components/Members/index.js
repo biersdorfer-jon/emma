@@ -26,6 +26,10 @@ const CardConatiner = styled.div`
     @media (max-width: 1450px) {
         flex-direction: column;
     }
+
+    @media (max-width: 750px) {
+        width: 100%;
+    }
     
 `;
 
