@@ -25,7 +25,27 @@ const InnerContainer = styled.div`
   background: white;
 
   @media (max-width: 970px) {
+    width: 600px;
+  }
+
+  @media (max-width: 835px) {
+    
     width: 500px;
+  }
+
+  @media (max-width: 600px) {
+    
+    width: 450px;
+  }
+
+  @media (max-width: 500px) {
+    
+    width: 350px;
+  }
+
+  @media (max-width: 400px) {
+    
+    width: 280px;
   }
 `;
 
@@ -35,18 +55,42 @@ const Circle = styled.div`
   border-radius: 50%;
   width: 1300px;
   height: 900px;
+  overflow: hidden;
   background: rgb(255,152,152);
   background: linear-gradient(90deg, rgba(255,152,152,1) 0%, rgba(180,16,16,1) 100%);
 
-  @media (max-width: 970px) {
-    width: 750px;
-    height: 1000px;
+  @media (max-width: 1502px) {
+    width: 95%;
   }
 
-  @media (max-width: 600px) {
-    width: 650px;
-    height: 800px;
+  @media (max-width: 970px) {
+    height: 900px;
+
   }
+
+  @media (max-width: 810px) {
+    height: 800px;
+    border-radius: 40%;
+  }
+
+  @media (max-width: 810px) {
+    height: 800px;
+    border-radius: 30%;
+  }
+
+
+  
+
+
+  // @media (max-width: 970px) {
+  //   width: 750px;
+  //   height: 1000px;
+  // }
+
+  // @media (max-width: 600px) {
+  //   width: 650px;
+  //   height: 800px;
+  // }
 `;
 
 
