@@ -32,20 +32,6 @@ overflow: hidden;
     display: block;
     overflow: hidden;
 
-    margin: 0;
-    padding-left: 70px;
-
-    @media  (max-width: 1200px){
-        padding-left: 10%;
-    }
-
-    @media (max-width: 900px){
-        padding-left: 31%;
-    }
-
-    @media (max-width: 600px) {
-        padding-left: 21%;
-    }
 }
 .slick-list:focus
 {
@@ -118,7 +104,8 @@ overflow: hidden;
 }
 .slick-initialized .slick-slide
 {
-    display: block;
+    display: flex;
+    justify-content: center;
 }
 .slick-loading .slick-slide
 {

@@ -4,15 +4,20 @@ import styled from 'styled-components';
 const Container = styled.div`
     display: flex;
     flex-direction: column;
-    width: 1000px;
+    width: 100%;
     height: 800px;
     align-items: start;
     justify-content: start;
-    padding: 400px 100px 50px 11%;
+    padding: 400px 0px 50px 11%;
     position: static;
     z-index: 1; /* Set z-index to make sure MemoContainer is above the overlay */
 
-    @media (max-width: )
+
+    @media (max-width: 768px) {
+      align-items: center;
+      padding: 400px 0px 50px 0px;
+    }
+    
 `;
 
 const MemoContainer = styled.div`
@@ -21,13 +26,30 @@ const MemoContainer = styled.div`
   align-items: start;
   justify-content: space-between;
   
+  
   position: relative; /* Add position relative to MemoContainer */
-`;
+
+  @media (max-width: 768px) {
+    align-items: center;
+  }
+    `;
 
 const Memo = styled.h1`
   color: white;
   display: flex;
   font-size: 50px;
+
+  @media (max-width: 768px) {
+    font-size: 40px;
+  }
+
+  @media (max-width: 570px) {
+    font-size: 30px;
+  }
+
+  @media (max-width: 490px) {
+    font-size: 25px;
+  }
 
 `;
 
@@ -37,6 +59,18 @@ const Memo2 = styled.h1`
   font-size: 72px;
   line-height: .8; /* Adjust the line height to your preference */
 
+  @media (max-width: 768px) {
+    font-size: 60px;
+  }
+
+  @media (max-width: 570px) {
+    font-size: 40px;
+  }
+
+  @media (max-width: 490px) {
+    font-size: 30px;
+  }
+
 `;
 
 const Memo3 = styled.h1`
@@ -45,6 +79,17 @@ const Memo3 = styled.h1`
   font-size: 50px;
   line-height: 1.6; /* Adjust the line height to your preference */
 
+  @media (max-width: 768px) {
+    font-size: 40px;
+  }
+
+  @media (max-width: 570px) {
+    font-size: 30px;
+  }
+
+  @media (max-width: 490px) {
+    font-size: 25px;
+  }
 `;
 
 const ButtonContainer = styled.div`
@@ -54,7 +99,11 @@ const ButtonContainer = styled.div`
     width: 100%;
     height: 100%;
     z-index: 2;
-    margin-top: 30px
+    margin-top: 30px;
+
+    @media (max-width: 768px) {
+      justify-content: center;
+    }
 `;
 
 const Button = styled.a`

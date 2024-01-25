@@ -8,6 +8,11 @@ const Container =styled.div`
     align-items: center;
     justify-content: flex-start;
     padding: 30px 100px 0px;
+
+    @media (max-width: 1250px) {
+        justify-content: center;
+        padding: 0px 100px;
+    }
 `;
 
 const TextContainer = styled.div`
@@ -16,6 +21,9 @@ const TextContainer = styled.div`
     justify-content: center;
     gap: 10px;
     padding: 50px 20px;
+    @media (max-width: 900px) {
+        flex-direction: column;
+    }
     `;
 
 const Title = styled.div`
@@ -28,7 +36,13 @@ const Title = styled.div`
     padding-left: 10px;
     -webkit-text-stroke: 2px #B41010; /* Add stroke using -webkit-text-stroke */
     text-stroke: 2px #B41010; /* Standard syntax for text-stroke */
-`;
+
+    @media (max-width: 900px) {
+        justify-content: center;
+        line-height: 0.9;
+        }
+
+    `;
 
 const Bold = styled.div`
 font-size: 90px;
@@ -39,6 +53,11 @@ font-size: 90px;
     color: white;
     padding-left: 10px;
     color: #B41010;
+
+    @media (max-width: 900px) {
+        justify-content: center;
+        line-height: 0.8;
+        }
 `;
 
 const Meet = styled.div`
@@ -52,6 +71,11 @@ font-size: 90px;
     padding-left: 0px;
     color: #B41010;
 
+    @media (max-width: 900px) {
+        justify-content: center;
+        line-height: 0.8;
+    }
+
 
 `;
 
@@ -64,6 +88,12 @@ const Line = styled.div`
     border-bottom: 2px solid #b41010;
     position: absolute;
     margin-left: 30px;
+
+    @media (max-width: 900px) {
+        height: 310px;
+        width: 60%;
+        margin-left: 0px;
+    }
     
 `;
 

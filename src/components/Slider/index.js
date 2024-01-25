@@ -10,14 +10,14 @@ const Slide = () => {
   var settings = {
     dots: true,
     slidesToShow: 4,
-    slidesToScroll: 4,
+    slidesToScroll: 1,
     width: '100%',
     responsive: [
       {
         breakpoint: 1550,
         settings: {
           slidesToShow: 3,
-          slidesToScroll: 3,
+          slidesToScroll: 1,
           infinite: true,
           dots: true,
         },
@@ -26,7 +26,7 @@ const Slide = () => {
         breakpoint: 1200,
         settings: {
           slidesToShow: 2,
-          slidesToScroll: 2,
+          slidesToScroll: 1,
           infinite: true,
           dots: true,
         },

@@ -171,8 +171,8 @@ const Nav = () => {
             <div id="myNav" class="overlay">
                 <a href="" class="closebtn" onClick={closeNav}>&times;</a>
                 <div class="overlay-content">
-                    <a href="#about" onClick={closeNav}>About</a>
                     <a href="#home" onClick={closeNav}>Home</a>
+                    <a href="#about" onClick={closeNav}>About</a>
                     <a href="#team" onClick={closeNav}>Meet the Team</a>
                     <a href="#list" onClick={closeNav}>Top Listings</a>
                     <a href="#contact" class="contact" onClick={closeNav}>Contact Us</a>
