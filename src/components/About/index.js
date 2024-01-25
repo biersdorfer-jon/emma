@@ -39,6 +39,15 @@ const Sub = styled.div`
     width: 60%;
     text-align: center;
     padding: 20px 0px 10px;
+
+    @media (max-width: 700px) {
+        width: 90%; 
+        font-size: 18px;
+    }
+
+    @media (max-width: 460px) {
+        width: 100%;  
+    }
 `;
 
 const SkillContainer = styled.div`
@@ -95,6 +104,16 @@ const Desc = styled.div`
         width: 400px;   
     }
 
+
+    @media (max-width: 460px) {
+        width: 300px;  
+    }
+
+    @media (max-width: 330px) {
+        width: 270px; 
+    }
+
+
     
 `;
 
@@ -123,6 +142,15 @@ const Sub2 = styled.div`
     width: 50%;
     text-align: center;
     padding: 10px 0px;
+
+    @media (max-width: 700px) {
+        width: 85%; 
+        font-size: 17px;
+    }
+
+    @media (max-width: 460px) {
+        width: 100%;  
+    }
 `;
 
 const About = () => {

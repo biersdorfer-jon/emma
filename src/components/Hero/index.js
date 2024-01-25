@@ -15,7 +15,7 @@ const Container = styled.div`
 
     @media (max-width: 768px) {
       align-items: center;
-      padding: 400px 0px 50px 0px;
+      padding: 350px 0px 50px 0px;
     }
     
 `;

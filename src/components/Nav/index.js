@@ -169,7 +169,7 @@ const Nav = () => {
             <Tags href='#list'>Top Listings</Tags>
         </NavItems>
             <div id="myNav" class="overlay">
-                <a href="" class="closebtn" onClick={closeNav}>&times;</a>
+                <a style={{cursor: 'pointer',}} class="closebtn" onClick={closeNav}>&times;</a>
                 <div class="overlay-content">
                     <a href="#home" onClick={closeNav}>Home</a>
                     <a href="#about" onClick={closeNav}>About</a>
