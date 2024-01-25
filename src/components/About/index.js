@@ -122,6 +122,9 @@ const ImageContainer = styled.div`
     justify-content: center;
     align-items: center;
     padding: 30px 0px 20px;
+    @media (max-width: 929px) {
+        display: none;
+    }
 
 `;
 
@@ -138,19 +141,24 @@ const Award = styled.img`
 
 const Sub2 = styled.div`
     color: black;
+    display: flex;
     font-size: 18px;
     width: 50%;
     text-align: center;
     padding: 10px 0px;
 
-    @media (max-width: 700px) {
-        width: 85%; 
-        font-size: 17px;
+    @media (max-width: 929px) {
+        display: none;
     }
 
-    @media (max-width: 460px) {
-        width: 100%;  
-    }
+    // @media (max-width: 700px) {
+    //     width: 85%; 
+    //     font-size: 17px;
+    // }
+
+    // @media (max-width: 460px) {
+    //     width: 100%;  
+    // }
 `;
 
 const About = () => {

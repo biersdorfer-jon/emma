@@ -73,24 +73,10 @@ const Circle = styled.div`
     border-radius: 40%;
   }
 
-  @media (max-width: 810px) {
+  @media (max-width: 700px) {
     height: 800px;
-    border-radius: 30%;
+    border-radius: 0%;
   }
-
-
-  
-
-
-  // @media (max-width: 970px) {
-  //   width: 750px;
-  //   height: 1000px;
-  // }
-
-  // @media (max-width: 600px) {
-  //   width: 650px;
-  //   height: 800px;
-  // }
 `;
 
 

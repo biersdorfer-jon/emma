@@ -52,7 +52,7 @@ const Memo = styled.h1`
     font-size: 30px;
   }
 
-  @media (max-width: 490px) {
+  @media (max-width: 370px) {
     font-size: 25px;
   }
 
@@ -72,7 +72,7 @@ const Memo2 = styled.h1`
     font-size: 40px;
   }
 
-  @media (max-width: 490px) {
+  @media (max-width: 370px) {
     font-size: 30px;
   }
 
@@ -92,7 +92,7 @@ const Memo3 = styled.h1`
     font-size: 30px;
   }
 
-  @media (max-width: 490px) {
+  @media (max-width: 370px) {
     font-size: 25px;
   }
 `;
