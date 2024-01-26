@@ -23,6 +23,9 @@ const Container = styled.div`
       padding: 230px 0px 50px 0px;
     }
     
+    @media (min-width: 1920px) {
+      height: 100%;
+    }
 `;
 
 const MemoContainer = styled.div`
@@ -175,7 +178,7 @@ window.addEventListener('resize', setHeight);
           top: 0,
           left: 0,
           width: '100%',
-          height: '100%',
+          height: '856px',
           backgroundImage: `url(${require('../../images/hero.jpg')})`,
           filter: 'brightness(0.5)',
         }}

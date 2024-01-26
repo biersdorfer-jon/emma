@@ -1,9 +1,12 @@
-import React from 'react'
+import React, { useEffect } from 'react';
 import styled from 'styled-components';
 import Monitor from '../Icons/monitor';
 import Home from '../Icons/home';
 import Users from '../Icons/users';
 import Heart from '../Icons/heart';
+import { gsap } from "gsap/dist/gsap";
+import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+
 
 
 const Container = styled.div`
@@ -162,21 +165,34 @@ const Sub2 = styled.div`
 `;
 
 const About = () => {
-    // const observer = new IntersectionObserver((entries) => {
-    //     entries.forEach((entry) => {
-    //       console.log(entry)
-    //       if (entry.isIntersecting) {
-    //         entry.target.classList.add('show');
-    //       } else {
-    //         entry.target.classList.remove('show');
-    //       }
-    //     })
-    //   })
-    //   const hiddenElements = document.querySelectorAll('.hidden')
-    // hiddenElements.forEach((el) => observer.observe(el));
+
+    gsap.registerPlugin(ScrollTrigger);
+
+  useEffect(() => {
+    gsap.fromTo(
+      '.about', // Target element or class
+      {
+        opacity: 0,
+        transform: 'translateY(50px)', // Optional: Set the initial transform for animation
+      },
+      {
+        opacity: 1,
+        transform: 'translateY(0)', // Optional: Set the final transform for animation
+        duration: 1.5,
+        scrollTrigger: {
+          trigger: '.about',
+          start: 'top 90%', // Adjust the start position as needed
+          end: 'bottom 80%', // Adjust the end position as needed
+          scrub: 1, // Adjust the scrub value for smoother animation
+          toggleActions: 'play none none none', // Adjust toggle actions as needed
+          markers: false, // Remove this line in production
+        },
+      }
+    );
+  }, []);
        
   return (
-    <Container className='show' id='about'>
+    <Container className='about' id='about'>
     <Top>65+ Years of Experience</Top>
     
     <Sub>Our team's extensive experience has been built on a foundation of unparalleled customer care. We are committed to providing you with a personalized, stress-free, and seamless real estate experience.</Sub>

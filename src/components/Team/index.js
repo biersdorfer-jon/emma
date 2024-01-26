@@ -1,5 +1,7 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import styled from 'styled-components';
+import gsap from 'gsap';
+import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 
 const Container = styled.div`
 display: flex;
@@ -170,8 +172,35 @@ const Line = styled.div`
 
 
 const Team = () => {
+
+    gsap.registerPlugin(ScrollTrigger);
+
+  useEffect(() => {
+    gsap.fromTo(
+      '.team', // Target element or class
+      {
+        opacity: 0,
+        transform: 'translateY(50px)', // Optional: Set the initial transform for animation
+      },
+      {
+        opacity: 1,
+        transform: 'translateY(0)', // Optional: Set the final transform for animation
+        duration: 10,
+        scrollTrigger: {
+          trigger: '.team',
+          start: 'top 90%', // Adjust the start position as needed
+          end: 'bottom 80%',  // Adjust the end position as needed
+          scrub: 1, // Adjust the scrub value for smoother animation
+          toggleActions: 'play none none none', // Adjust toggle actions as needed
+          markers: true, // Remove this line in production
+        },
+      }
+    );
+  }, []);
+
+
   return (
-    <Container id='team'>
+    <Container className='team' id='team'>
     <Top>
         <Image src={require('../../images/hero2.jpg')}/>
         <TextContainer>

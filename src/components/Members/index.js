@@ -1,6 +1,7 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import styled from 'styled-components';
-import { useEffect, useState } from "react";
+import gsap from 'gsap';
+import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import Tel from '../Icons/phone';
 import Mail from '../Icons/mail';
 
@@ -262,10 +263,10 @@ const BackgroundImage = styled.div`
   left: 0;
   width: 100%;
   height: 500px;
-  background-image: url(${require('../../images/Kw.jpg')});
+  background-image: url(${require('../../images/Kw2.png')});
   background-size: contain;
   background-position: center;
-  filter: brightness(0.5);
+  filter: brightness(0.7);
 
   @media (max-width: 1450px) {
     height: 850px;
@@ -287,6 +288,31 @@ const Members = () => {
        // setShowLeftContact(true);
     };
 
+    gsap.registerPlugin(ScrollTrigger);
+
+    useEffect(() => {
+      gsap.fromTo(
+        '.members', // Target element or class
+        {
+          opacity: 0,
+          transform: 'translateY(50px)', // Optional: Set the initial transform for animation
+        },
+        {
+          opacity: 1,
+          transform: 'translateY(0)', // Optional: Set the final transform for animation
+          duration: 5,
+          scrollTrigger: {
+            trigger: '.members',
+            start: 'top 90%', // Adjust the start position as needed
+          end: 'bottom 80%',  // Adjust the end position as needed
+            scrub: 1, // Adjust the scrub value for smoother animation
+            toggleActions: 'play none none none', // Adjust toggle actions as needed
+            markers: true, // Remove this line in production
+          },
+        }
+      );
+    }, []);
+
   return (
     <div
       style={{
@@ -297,7 +323,7 @@ const Members = () => {
     >
      <BackgroundImage />
 
-    <Container>
+    <Container className='members'>
         <CardConatiner>
             <Card>
                 <Image src={require('../../images/todd - Copy.png')} />
