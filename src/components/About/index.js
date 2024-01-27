@@ -15,7 +15,6 @@ const Container = styled.div`
     align-items: center;
     flex-direction: column;
     width: 100%;
-    background: white;
     padding-top: 40px;
 
     @media (max-width: 1552px) {
@@ -167,29 +166,56 @@ const Sub2 = styled.div`
 const About = () => {
 
     gsap.registerPlugin(ScrollTrigger);
+    useEffect(() => {
+        const mm = gsap.matchMedia();
+    
+        mm.add('(min-width: 800px)', () => {
+          gsap.fromTo(
+            '.about',
+            {
+              opacity: 0,
+              transform: 'translateY(50px)',
+            },
+            {
+              opacity: 1,
+              transform: 'translateY(0)',
+              duration: 1.5,
+              scrollTrigger: {
+                trigger: '.about',
+                start: 'top 90%',
+                end: 'bottom 80%',
+                scrub: 1,
+                toggleActions: 'play none none none',
+              },
+            }
+          );
+        });
+    
+        mm.add('(max-width: 1900px)', () => {
+          gsap.fromTo(
+            '.about',
+            {
+              opacity: 0,
+              transform: 'translateY(60px)',
+            },
+            {
+              opacity: 1,
+              transform: 'translateY(30px)',
+              duration: 1.5,
+              scrollTrigger: {
+                trigger: '.about',
+                start: 'top 90%',
+                end: 'bottom 80%',
+                scrub: 1,
+                toggleActions: 'play none none none',
+              },
+            }
+          );
+        });
+      }, []);
 
-  useEffect(() => {
-    gsap.fromTo(
-      '.about', // Target element or class
-      {
-        opacity: 0,
-        transform: 'translateY(50px)', // Optional: Set the initial transform for animation
-      },
-      {
-        opacity: 1,
-        transform: 'translateY(0)', // Optional: Set the final transform for animation
-        duration: 1.5,
-        scrollTrigger: {
-          trigger: '.about',
-          start: 'top 90%', // Adjust the start position as needed
-          end: 'bottom 80%', // Adjust the end position as needed
-          scrub: 1, // Adjust the scrub value for smoother animation
-          toggleActions: 'play none none none', // Adjust toggle actions as needed
-          markers: false, // Remove this line in production
-        },
-      }
-    );
-  }, []);
+
+  
        
   return (
     <Container className='about' id='about'>
