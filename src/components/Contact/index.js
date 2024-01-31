@@ -232,7 +232,6 @@ const Contact = () => {
         end: 'bottom 80%',  // Adjust the end position as needed
           scrub: 1, // Adjust the scrub value for smoother animation
           toggleActions: 'play none none none', // Adjust toggle actions as needed
-          markers: true, // Remove this line in production
         },
       }
     );
