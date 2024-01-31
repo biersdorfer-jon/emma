@@ -1,7 +1,9 @@
-import React, { useRef } from 'react';
+import React, { useRef, useEffect } from 'react';
 import styled from 'styled-components';
 import emailjs from '@emailjs/browser';
 import './form.css';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
 
 const Container =styled.div`
     width: 100%;
@@ -211,11 +213,37 @@ const Contact = () => {
       });
   };
 
+  gsap.registerPlugin(ScrollTrigger);
+
+  useEffect(() => {
+    gsap.fromTo(
+      '.contactInner', // Target element or class
+      {
+        opacity: 0,
+        transform: 'translateY(50px)', // Optional: Set the initial transform for animation
+      },
+      {
+        opacity: 1,
+        transform: 'translateY(0)', // Optional: Set the final transform for animation
+        duration: 5,
+        scrollTrigger: {
+          trigger: '.contactInner',
+          start: 'top 90%', // Adjust the start position as needed
+        end: 'bottom 80%',  // Adjust the end position as needed
+          scrub: 1, // Adjust the scrub value for smoother animation
+          toggleActions: 'play none none none', // Adjust toggle actions as needed
+          markers: true, // Remove this line in production
+        },
+      }
+    );
+  });
+
+
 
   return (
     <Container id='contact'>
       <Circle />
-      <InnerContainer>
+      <InnerContainer className='contactInner'>
       
       <ContactContainer>
       <FormConatainer>

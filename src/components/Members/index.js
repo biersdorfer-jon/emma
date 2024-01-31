@@ -292,14 +292,35 @@ const Members = () => {
 
     useEffect(() => {
       gsap.fromTo(
-        '.members', // Target element or class
+        '.left', // Target element or class
         {
           opacity: 0,
-          transform: 'translateY(50px)', // Optional: Set the initial transform for animation
+          transform: 'translateX(-600px)', // Optional: Set the initial transform for animation
         },
         {
           opacity: 1,
-          transform: 'translateY(0)', // Optional: Set the final transform for animation
+          transform: 'translateX(0)', // Optional: Set the final transform for animation
+          duration: 5,
+          scrollTrigger: {
+            trigger: '.members',
+            start: 'top 90%', // Adjust the start position as needed
+          end: 'bottom 80%',  // Adjust the end position as needed
+            scrub: 1, // Adjust the scrub value for smoother animation
+            toggleActions: 'play none none none', // Adjust toggle actions as needed
+            markers: true, // Remove this line in production
+          },
+        }
+      );
+
+      gsap.fromTo(
+        '.right', // Target element or class
+        {
+          opacity: 0,
+          transform: 'translateX(600px)', // Optional: Set the initial transform for animation
+        },
+        {
+          opacity: 1,
+          transform: 'translateX(0)', // Optional: Set the final transform for animation
           duration: 5,
           scrollTrigger: {
             trigger: '.members',
@@ -325,7 +346,7 @@ const Members = () => {
 
     <Container className='members'>
         <CardConatiner>
-            <Card>
+            <Card className='left'>
                 <Image src={require('../../images/todd - Copy.png')} />
                 <Title>Todd McCoy</Title>
                 <Job>Real Estate Agent</Job>
@@ -333,7 +354,7 @@ const Members = () => {
                     <Button onClick={toggleLeftContact}>Show Contacts</Button>
                 </ButtonContainer>
             </Card>
-            <Card>
+            <Card className='right'> 
                 <Image src={require('../../images/emma - Copy.png')} />
                 <Title>Emma Biersdorfer</Title>
                 <Job>Real Estate Agent</Job>
@@ -341,7 +362,7 @@ const Members = () => {
                     <Button onClick={toggleRightContact}>Show Contacts</Button>
                 </ButtonContainer>
             </Card>
-            <ContactLeft
+            <ContactLeft 
                     visibility={showLeftContact}
                     expanded={showLeftContact}
                     move = {showLeftContact}

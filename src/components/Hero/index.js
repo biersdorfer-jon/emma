@@ -1,5 +1,9 @@
-import React from 'react';
+import gsap from 'gsap';
+import React, {useEffect} from 'react';
 import styled from 'styled-components';
+
+
+
 
 const Container = styled.div`
     display: flex;
@@ -7,9 +11,11 @@ const Container = styled.div`
     width: 100%;
     height: 800px;
     align-items: start;
+    opacity: 0;
     justify-content: start;
     padding: 400px 0px 50px 11%;
     position: static;
+    transition: opacity 0.5s;
     z-index: 1; /* Set z-index to make sure MemoContainer is above the overlay */
 
 
@@ -138,19 +144,6 @@ const Button = styled.a`
 
 const Hero = () => {
 
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      console.log(entry)
-      if (entry.isIntersecting) {
-        entry.target.classList.add('show');
-      } else {
-        entry.target.classList.remove('show');
-      }
-    })
-  })
-  const hiddenElements = document.querySelectorAll('.hidden')
-hiddenElements.forEach((el) => observer.observe(el));
-
 // Dynamically set the height of the image based on screen width
 const setHeight = () => {
   const imageContainer = document.getElementById('home'); // Adjust the ID based on your container ID
@@ -163,6 +156,24 @@ const setHeight = () => {
 
 setHeight(); // Set initial height
 window.addEventListener('resize', setHeight); 
+
+useEffect(() => {
+  // Animation timeline
+  const tl = gsap.timeline();
+
+  // Initial state (hidden)
+  tl.set('.hero', { opacity: 0, x: '-100%' });
+
+  // Animation to bring the Container in from the left
+  tl.to('.hero', { duration: 2, opacity: 1, x: '0', ease: 'power4.out' });
+
+  // You can adjust the delay according to your needs
+  tl.delay(2); // Wait for 1 second after the page fully loads before starting the animation
+}, []); // Empty dependency array ensures the effect runs only once after initial render
+
+// ... rest of your code ...
+
+
 
   return (
     <div
@@ -183,7 +194,7 @@ window.addEventListener('resize', setHeight);
           filter: 'brightness(0.5)',
         }}
       ></div>
-        <Container className='show' id='home'>
+        <Container className='hero' id='home'>
       <MemoContainer>
         <Memo>Need to </Memo>
         <Memo2>Buy, Sell, or Invest</Memo2>
