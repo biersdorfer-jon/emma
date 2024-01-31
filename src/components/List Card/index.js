@@ -2,12 +2,13 @@ import React from 'react'
 import styled from 'styled-components';
 
 const Card = styled.div`
-    width: 280px;
+    width: 310px;
     display: flex;
     margin: 20px;
     justify-content: center;
     flex-direction: column;
-    height: 250px;
+    height: 310px;
+    cursor: pointer;
     margin-bottom: 15px;
     border-radius: 10px 10px;
     -webkit-box-shadow: 0px 4px 5px 0px rgba(148,148,148,1);
@@ -75,6 +76,14 @@ const Address = styled.div`
     padding-top: 3px;
 `;
 
+const City = styled.div`
+    font-weight: 400;
+    font-size: 14px;
+    justify-content: start;
+    width: 100%;
+    color: black;
+`;
+
 const Logo = styled.img`
     width: 100%;
     padding-top: 5px;
@@ -85,6 +94,7 @@ const Logo = styled.img`
 
 const ListCard = ({house}) => {
   return (
+    <a style={{textDecoration: 'none',}}href={house.link} target="_blank">
         <Card>
             <Image src={require(`../../images/${house.image}`)} />
             <Bottom>
@@ -92,12 +102,14 @@ const ListCard = ({house}) => {
             <Price>{house.price}</Price>
             <Details>{house.details}</Details>
             <Address>{house.address}</Address>
+            <City>{house.city}</City>
 </Left>
 <Right>
 <Logo src={require('../../images/kwprefer.png')} />
 </Right>
 </Bottom>
         </Card>
+        </a>
   )
 }
 

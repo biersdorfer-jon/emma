@@ -174,7 +174,7 @@ const About = () => {
             '.about',
             {
               opacity: 0,
-              transform: 'translateY(50px)',
+              transform: 'translateY(0)',
             },
             {
               opacity: 1,
