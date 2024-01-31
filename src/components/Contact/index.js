@@ -2,7 +2,7 @@ import React, { useRef, useEffect } from 'react';
 import styled from 'styled-components';
 import emailjs from '@emailjs/browser';
 import './form.css';
-import gsap from 'gsap';
+import { gsap } from "gsap/dist/gsap";
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
 
 const Container =styled.div`

@@ -4,7 +4,7 @@ import { house } from '../../data/constant';
 import Slider from "react-slick";
 import "./slick.css";
 import "./slick-theme.css";
-import gsap from 'gsap';
+import { gsap } from "gsap/dist/gsap";
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
 
 

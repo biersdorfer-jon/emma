@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import styled from 'styled-components';
-import gsap from 'gsap';
+import { gsap } from "gsap/dist/gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import Tel from '../Icons/phone';
 import Mail from '../Icons/mail';
