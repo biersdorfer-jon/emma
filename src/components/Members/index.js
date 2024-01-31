@@ -291,46 +291,83 @@ const Members = () => {
     gsap.registerPlugin(ScrollTrigger);
 
     useEffect(() => {
-      gsap.fromTo(
-        '.left', // Target element or class
-        {
-          opacity: 0,
-          transform: 'translateX(-600px)', // Optional: Set the initial transform for animation
-        },
-        {
-          opacity: 1,
-          transform: 'translateX(0)', // Optional: Set the final transform for animation
-          duration: 5,
-          scrollTrigger: {
-            trigger: '.members',
-            start: 'top 90%', // Adjust the start position as needed
-          end: 'bottom 100%',  // Adjust the end position as needed
-            scrub: 1, // Adjust the scrub value for smoother animation
-            toggleActions: 'play none none none', // Adjust toggle actions as needed
-          },
+        // Animation function
+        const animateElements = (startPoint, endPoint) => {
+          gsap.fromTo(
+            '.left',
+            {
+              opacity: 0,
+              transform: 'translateX(-600px)',
+            },
+            {
+              opacity: 1,
+              transform: 'translateX(0)',
+              duration: 5,
+              scrollTrigger: {
+                trigger: '.members',
+                start: startPoint,
+                end: endPoint,
+                scrub: 1,
+                toggleActions: 'play none none none',
+              },
+            }
+          );
+      
+          gsap.fromTo(
+            '.right',
+            {
+              opacity: 0,
+              transform: 'translateX(600px)',
+            },
+            {
+              opacity: 1,
+              transform: 'translateX(0)',
+              duration: 5,
+              scrollTrigger: {
+                trigger: '.members',
+                start: startPoint,
+                end: endPoint,
+                scrub: 1,
+                toggleActions: 'play none none none',
+              },
+            }
+          );
+        };
+      
+        // Media query for screens with a minimum width of 800px
+        const mediaQuery800 = window.matchMedia('(max-width: 1450px)');
+        if (mediaQuery800.matches) {
+          animateElements('top 100%', 'top 60%');
         }
-      );
+      
+        // Media query for screens with a minimum width of 1900px
+        const mediaQuery1900 = window.matchMedia('(min-width: 1451px)');
+        if (mediaQuery1900.matches) {
+          animateElements('top 90%', 'bottom 100%');
+        }
+      
+        // Event listener for changes in media query status
+        const handleMediaQueryChange = (event) => {
+          if (event.matches) {
+            // Media query matches, apply animations
+            animateElements('translateX(-600px)', 'translateX(600px)');
+          }
+        };
+      
+        // Add event listeners for media query changes
+        mediaQuery800.addListener(handleMediaQueryChange);
+        mediaQuery1900.addListener(handleMediaQueryChange);
+      
+        // Clean up event listeners on component unmount
+        return () => {
+          mediaQuery800.removeListener(handleMediaQueryChange);
+          mediaQuery1900.removeListener(handleMediaQueryChange);
+        };
+      }, []);
+      
 
-      gsap.fromTo(
-        '.right', // Target element or class
-        {
-          opacity: 0,
-          transform: 'translateX(600px)', // Optional: Set the initial transform for animation
-        },
-        {
-          opacity: 1,
-          transform: 'translateX(0)', // Optional: Set the final transform for animation
-          duration: 5,
-          scrollTrigger: {
-            trigger: '.members',
-            start: 'top 90%', // Adjust the start position as needed
-          end: 'bottom 100%',  // Adjust the end position as needed
-            scrub: 1, // Adjust the scrub value for smoother animation
-            toggleActions: 'play none none none', // Adjust toggle actions as needed
-          },
-        }
-      );
-    }, []);
+    
+    
 
   return (
     <div
