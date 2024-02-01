@@ -421,7 +421,7 @@ const Members = () => {
                 </PhoneSection>
                 </ContactBottom>
                 </ContactLeft>
-                <ContactRight
+                <ContactRight 
                     visibility={showRightContact}
                     expanded={showRightContact}
                     move = {showRightContact}

@@ -19,10 +19,11 @@ const Container = styled.div`
 
     @media (max-width: 1552px) {
         padding: 40px 200px 0px;
+        padding-top: 40px;
     }
 
     @media (max-width: 1275px) {
-        padding: 40px;
+        padding-top: 40px;
     }
 `;
 
@@ -166,54 +167,63 @@ const Sub2 = styled.div`
 const About = () => {
 
     gsap.registerPlugin(ScrollTrigger);
-    useEffect(() => {
-        const mm = gsap.matchMedia();
-    
-        mm.add('(min-width: 800px)', () => {
-          gsap.fromTo(
-            '.about',
-            {
-              opacity: 0,
-              transform: 'translateY(0)',
-            },
-            {
-              opacity: 1,
-              transform: 'translateY(0)',
-              duration: 1.5,
-              scrollTrigger: {
-                trigger: '.about',
-                start: 'top 90%',
-                end: 'bottom 80%',
-                scrub: 1,
-                toggleActions: 'play none none none',
-              },
-            }
-          );
-        });
-    
-        mm.add('(max-width: 1900px)', () => {
-          gsap.fromTo(
-            '.about',
-            {
-              opacity: 0,
-              transform: 'translateY(60px)',
-            },
-            {
-              opacity: 1,
-              transform: 'translateY(30px)',
-              duration: 1.5,
-              scrollTrigger: {
-                trigger: '.about',
-                start: 'top 90%',
-                end: 'bottom 80%',
-                scrub: 1,
-                toggleActions: 'play none none none',
-              },
-            }
-          );
-        });
-      }, []);
 
+  useEffect(() => {
+    const animateElements = (startPoint, endPoint) => {
+      
+      gsap.fromTo(
+        '.about',
+        {
+          opacity: 0,
+          transform: 'translateY(70px)',
+        },
+        {
+          opacity: 1,
+          transform: 'translateY(30px)',
+          duration: 1.5,
+          scrollTrigger: {
+            trigger: '.about',
+            start: startPoint,
+            end: endPoint,
+            scrub: 1,
+            toggleActions: 'play none none none',
+          },
+        }
+      );
+    };
+
+    // Media query for screens with a maximum width of 1552px
+    const mediaQuery800 = window.matchMedia('(max-width: 1552px)');
+    if (mediaQuery800.matches) {
+      animateElements('top 100%', 'top 30%');
+    }
+
+    // Media query for screens with a minimum width of 1553px
+    const mediaQuery1900 = window.matchMedia('(min-width: 1553px)');
+    if (mediaQuery1900.matches) {
+      animateElements('top 90%', 'bottom 100%');
+    }
+
+    // Event listener for changes in media query status
+    const handleMediaQueryChange = (event) => {
+      if (event.matches) {
+        // Media query matches, apply animations
+        animateElements('top 100%', 'top 60%');
+      } else {
+        animateElements('top 90%', 'bottom 100%');
+      }
+    };
+
+    // Add event listener for media query changes
+    mediaQuery800.addListener(handleMediaQueryChange);
+    mediaQuery1900.addListener(handleMediaQueryChange);
+
+    // Clean up event listeners on component unmount
+    return () => {
+      mediaQuery800.removeListener(handleMediaQueryChange);
+      mediaQuery1900.removeListener(handleMediaQueryChange);
+    };
+  }, []);
 
   
        

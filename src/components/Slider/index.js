@@ -14,6 +14,7 @@ const Slide = () => {
     slidesToShow: 4,
     slidesToScroll: 1,
     width: '100%',
+    arrows: true,
     responsive: [
       {
         breakpoint: 1550,
