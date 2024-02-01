@@ -129,13 +129,13 @@ const ListHeader = () => {
       };
   
       // Media query for screens with a maximum width of 500px
-      const mediaQuery500 = window.matchMedia('(max-width: 400px)');
+      const mediaQuery500 = window.matchMedia('(max-width: 500px)');
       if (mediaQuery500.matches) {
-        animateElements('top 100%', 'top 30%');
+        animateElements('top 100%', 'top 70%');
       }
   
       // Media query for screens with a minimum width of 501px
-      const mediaQuery501 = window.matchMedia('(min-width: 401px)');
+      const mediaQuery501 = window.matchMedia('(min-width: 501px)');
       if (mediaQuery501.matches) {
         animateElements('top 90%', 'bottom 80%');
       }
