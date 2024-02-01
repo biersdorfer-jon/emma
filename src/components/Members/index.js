@@ -13,8 +13,10 @@ const Container = styled.div`
     padding: 100px 0px;
     background: transparent;
     flex-direction: column;
+    overflow-x: hidden;
     position: relative; /* Add position: relative to the container */
     z-index: 1;`;
+    
 
 const CardConatiner = styled.div`
     display: flex;

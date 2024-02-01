@@ -18,14 +18,14 @@ const Container = styled.div`
     padding-top: 40px;
 
     @media (max-width: 1552px) {
-        padding: 40px 200px 0px;
-        padding-top: 40px;
+        padding: 40px 200px 0px 200px;  /* Include all padding values */
     }
 
     @media (max-width: 1275px) {
-        padding-top: 40px;
+        padding: 40px;  /* Include all padding values */
     }
 `;
+
 
 const Top = styled.div`
     font-size: 55px;
@@ -130,13 +130,6 @@ const ImageContainer = styled.div`
     }
 
 `;
-
-const AwardContainer = styled.div`
-    display: flex;
-    justify-content: center;
-    width: 70%;    
-    align-items: center;
-`;
     
 const Award = styled.img`
     width: 35%;
@@ -154,14 +147,6 @@ const Sub2 = styled.div`
         display: none;
     }
 
-    // @media (max-width: 700px) {
-    //     width: 85%; 
-    //     font-size: 17px;
-    // }
-
-    // @media (max-width: 460px) {
-    //     width: 100%;  
-    // }
 `;
 
 const About = () => {
@@ -193,14 +178,14 @@ const About = () => {
     };
 
     // Media query for screens with a maximum width of 1552px
-    const mediaQuery800 = window.matchMedia('(max-width: 1552px)');
-    if (mediaQuery800.matches) {
+    const mediaQuery1552 = window.matchMedia('(max-width: 1552px)');
+    if (mediaQuery1552.matches) {
       animateElements('top 100%', 'top 30%');
     }
 
     // Media query for screens with a minimum width of 1553px
-    const mediaQuery1900 = window.matchMedia('(min-width: 1553px)');
-    if (mediaQuery1900.matches) {
+    const mediaQuery1553 = window.matchMedia('(min-width: 1553px)');
+    if (mediaQuery1553.matches) {
       animateElements('top 90%', 'bottom 100%');
     }
 
@@ -208,20 +193,20 @@ const About = () => {
     const handleMediaQueryChange = (event) => {
       if (event.matches) {
         // Media query matches, apply animations
-        animateElements('top 100%', 'top 60%');
+        animateElements('top 100%', 'top 30%');
       } else {
         animateElements('top 90%', 'bottom 100%');
       }
     };
 
     // Add event listener for media query changes
-    mediaQuery800.addListener(handleMediaQueryChange);
-    mediaQuery1900.addListener(handleMediaQueryChange);
+    mediaQuery1552.addListener(handleMediaQueryChange);
+    mediaQuery1553.addListener(handleMediaQueryChange);
 
     // Clean up event listeners on component unmount
     return () => {
-      mediaQuery800.removeListener(handleMediaQueryChange);
-      mediaQuery1900.removeListener(handleMediaQueryChange);
+      mediaQuery1552.removeListener(handleMediaQueryChange);
+      mediaQuery1553.removeListener(handleMediaQueryChange);
     };
   }, []);
 
