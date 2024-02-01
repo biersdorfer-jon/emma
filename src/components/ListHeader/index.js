@@ -105,8 +105,10 @@ const ListHeader = () => {
     gsap.registerPlugin(ScrollTrigger);
 
     useEffect(() => {
-      gsap.fromTo(
-        '.header', // Target element or class
+      const animateElements = (startPoint, endPoint) => {
+        
+        gsap.fromTo(
+          '.header', // Target element or class
         {
           opacity: 0,
           transform: 'translateX(-600px)', // Optional: Set the initial transform for animation
@@ -117,14 +119,48 @@ const ListHeader = () => {
           duration: 5,
           scrollTrigger: {
             trigger: '.header',
-            start: 'top 90%', // Adjust the start position as needed
-          end: 'bottom 80%',  // Adjust the end position as needed
+            start: startPoint, // Adjust the start position as needed
+          end: endPoint,  // Adjust the end position as needed
             scrub: 1, // Adjust the scrub value for smoother animation
             toggleActions: 'play none none none', // Adjust toggle actions as needed
           },
         }
-      );
-    });
+        );
+      };
+  
+      // Media query for screens with a maximum width of 500px
+      const mediaQuery500 = window.matchMedia('(max-width: 400px)');
+      if (mediaQuery500.matches) {
+        animateElements('top 100%', 'top 30%');
+      }
+  
+      // Media query for screens with a minimum width of 501px
+      const mediaQuery501 = window.matchMedia('(min-width: 401px)');
+      if (mediaQuery501.matches) {
+        animateElements('top 90%', 'bottom 80%');
+      }
+  
+      // Event listener for changes in media query status
+      const handleMediaQueryChange = (event) => {
+        if (event.matches) {
+          // Media query matches, apply animations
+          animateElements('top 100%', 'top 30%');
+        } else {
+          animateElements('top 90%', 'bottom 100%');
+        }
+      };
+  
+      // Add event listener for media query changes
+      mediaQuery500.addListener(handleMediaQueryChange);
+      mediaQuery501.addListener(handleMediaQueryChange);
+  
+      // Clean up event listeners on component unmount
+      return () => {
+        mediaQuery500.removeListener(handleMediaQueryChange);
+        mediaQuery501.removeListener(handleMediaQueryChange);
+      };
+    }, []);
+  
   return (
     <Container id='list' className='header'>
         <TextContainer>

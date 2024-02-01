@@ -18,6 +18,9 @@ const Container = styled.div`
     transition: opacity 0.5s;
     z-index: 1; /* Set z-index to make sure MemoContainer is above the overlay */
 
+    @media (max-width: 1250px) {
+      padding: 310px 0px 50px 11%;
+    }
 
     @media (max-width: 768px) {
       align-items: center;
