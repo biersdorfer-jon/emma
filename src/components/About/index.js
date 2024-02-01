@@ -22,7 +22,7 @@ const Container = styled.div`
     }
 
     @media (max-width: 1275px) {
-        padding: 40px;  /* Include all padding values */
+        padding: 20px 40px 40px 40px;
     }
 `;
 

@@ -146,11 +146,18 @@ const Hero = () => {
 
 // Dynamically set the height of the image based on screen width
 const setHeight = () => {
-  const imageContainer = document.getElementById('fix'); // Adjust the ID based on your container ID
+  const imageContainer = document.getElementById('fix');
+  const ContainerHeight = document.getElementById('home');  // Adjust the ID based on your container ID
   if (imageContainer) {
     const screenWidth = window.innerWidth;
     const imageHeight = screenWidth <= 400 ? 600 : 856; // Adjust the height values as needed
     imageContainer.style.height = `${imageHeight}px`;
+  }
+
+  if (ContainerHeight) {
+    const screenWidth = window.innerWidth;
+    const imageHeight = screenWidth <= 400 ? 600 : 856; // Adjust the height values as needed
+    ContainerHeight.style.height = `${imageHeight}px`;
   }
 };
 
