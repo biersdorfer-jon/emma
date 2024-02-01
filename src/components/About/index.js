@@ -261,7 +261,7 @@ const About = () => {
     // Media query for screens with a maximum width of 1552px
     const mediaQuery1552 = window.matchMedia('(max-width: 1552px)');
     if (mediaQuery1552.matches) {
-      animateElements('top 100%', 'top 30%');
+      animateElements('top 100%', 'top 60%');
     }
 
     // Media query for screens with a minimum width of 1553px
@@ -274,7 +274,7 @@ const About = () => {
     const handleMediaQueryChange = (event) => {
       if (event.matches) {
         // Media query matches, apply animations
-        animateElements('top 100%', 'top 30%');
+        animateElements('top 100%', 'top 60%');
       } else {
         animateElements('top 90%', 'bottom 100%');
       }

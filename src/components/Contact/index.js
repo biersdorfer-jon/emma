@@ -16,8 +16,14 @@ const Container =styled.div`
     
 
     @media (max-width: 700px) {
-      padding: 100px;
+      padding: 100px 0px;
     }
+
+    @media (max-width: 600px) {
+      padding: 60px 0px;
+    }
+
+
 `;
 
 const InnerContainer = styled.div`
