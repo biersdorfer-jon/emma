@@ -13,7 +13,7 @@ const Container = styled.div`
     align-items: start;
     opacity: 0;
     justify-content: start;
-    padding: 400px 0px 50px 11%;
+    padding: 350px 0px 50px 11%;
     position: static;
     transition: opacity 0.5s;
     z-index: 1; /* Set z-index to make sure MemoContainer is above the overlay */
@@ -146,10 +146,10 @@ const Hero = () => {
 
 // Dynamically set the height of the image based on screen width
 const setHeight = () => {
-  const imageContainer = document.getElementById('home'); // Adjust the ID based on your container ID
+  const imageContainer = document.getElementById('fix'); // Adjust the ID based on your container ID
   if (imageContainer) {
     const screenWidth = window.innerWidth;
-    const imageHeight = screenWidth <= 400 ? 600 : 800; // Adjust the height values as needed
+    const imageHeight = screenWidth <= 400 ? 600 : 856; // Adjust the height values as needed
     imageContainer.style.height = `${imageHeight}px`;
   }
 };
@@ -183,7 +183,7 @@ useEffect(() => {
         position: 'relative',
       }}
     >
-      <div
+      <div id='fix'
         style={{
           position: 'absolute',
           top: 0,

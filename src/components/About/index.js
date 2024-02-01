@@ -171,9 +171,9 @@ const About = () => {
             start: startPoint,
             end: endPoint,
             scrub: 1,
-            toggleActions: 'play none none none',
+            toggleActions: 'play none none none', 
           },
-        }
+        } 
       );
     };
 
