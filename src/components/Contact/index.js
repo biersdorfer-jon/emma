@@ -14,6 +14,10 @@ const Container =styled.div`
     flex-direction: row;
     padding: 200px 0px;
     
+
+    @media (max-width: 700px) {
+      padding: 100px;
+    }
 `;
 
 const InnerContainer = styled.div`

@@ -215,7 +215,7 @@ const Team = () => {
     const handleMediaQueryChange = (event) => {
       if (event.matches) {
         // Media query matches, apply animations
-        animateElements('top 100%', 'top 30%');
+        animateElements('top 100%', 'top 70%');
       } else {
         animateElements('top 90%', 'bottom 100%');
       }
