@@ -16,6 +16,7 @@ const Container = styled.div`
     flex-direction: column;
     width: 100%;
     padding-top: 40px;
+    
 
     @media (max-width: 1552px) {
         padding: 40px 200px 0px 200px;  /* Include all padding values */
@@ -241,11 +242,11 @@ const About = () => {
         '.skill4',
         {
           opacity: 0,
-          transform: 'translateY(70px)',
+          transform: 'translateY(50px)',
         },
         {
           opacity: 1,
-          transform: 'translateY(30px)',
+          transform: 'translateY(0px)',
           duration: 1.5,
           scrollTrigger: {
             trigger: '.skill4',
