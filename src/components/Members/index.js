@@ -335,23 +335,6 @@ const Members = () => {
             }
           );
 
-          gsap.fromTo(
-            '.appear',
-            {
-              visibility: 'visible',
-            },
-            {
-              visibility: 'hidden',
-              duration: 5,
-              scrollTrigger: {
-                trigger: '.members',
-                start: startPoint,
-                end: endPoint,
-                scrub: 1,
-                toggleActions: 'play none none none',
-              },
-            }
-          );
         };
 
         
@@ -419,7 +402,7 @@ const Members = () => {
                     <Button onClick={toggleRightContact}>Show Contacts</Button>
                 </ButtonContainer>
             </Card>
-            <ContactLeft className='appear'
+            <ContactLeft
                     visibility={showLeftContact}
                     expanded={showLeftContact}
                     move = {showLeftContact}
@@ -443,7 +426,7 @@ const Members = () => {
                 </PhoneSection>
                 </ContactBottom>
                 </ContactLeft>
-                <ContactRight className='appear'
+                <ContactRight
                     visibility={showRightContact}
                     expanded={showRightContact}
                     move = {showRightContact}
