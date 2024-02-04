@@ -334,7 +334,27 @@ const Members = () => {
               },
             }
           );
+
+          gsap.fromTo(
+            '.appear',
+            {
+              visibility: 'visible',
+            },
+            {
+              visibility: 'hidden',
+              duration: 5,
+              scrollTrigger: {
+                trigger: '.members',
+                start: startPoint,
+                end: endPoint,
+                scrub: 1,
+                toggleActions: 'play none none none',
+              },
+            }
+          );
         };
+
+        
       
         // Media query for screens with a minimum width of 800px
         const mediaQuery800 = window.matchMedia('(max-width: 1450px)');
@@ -399,7 +419,7 @@ const Members = () => {
                     <Button onClick={toggleRightContact}>Show Contacts</Button>
                 </ButtonContainer>
             </Card>
-            <ContactLeft 
+            <ContactLeft className='appear'
                     visibility={showLeftContact}
                     expanded={showLeftContact}
                     move = {showLeftContact}
@@ -423,7 +443,7 @@ const Members = () => {
                 </PhoneSection>
                 </ContactBottom>
                 </ContactLeft>
-                <ContactRight 
+                <ContactRight className='appear'
                     visibility={showRightContact}
                     expanded={showRightContact}
                     move = {showRightContact}
