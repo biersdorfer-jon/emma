@@ -291,54 +291,32 @@ const Members = () => {
     };
 
     useEffect(() => {
-      let lastScrollTop = 0;
-  
-      const handleScroll = () => {
-          const leftContactElement = document.querySelector('.left');
-          const rightContactElement = document.querySelector('.right');
-          const scrollTop = window.scrollY || document.documentElement.scrollTop;
-  
-          if (scrollTop > lastScrollTop) {
-              // Scrolling down
-              if (showLeftContact && leftContactElement) {
-                  const rect = leftContactElement.getBoundingClientRect();
-                  if (rect.bottom < 0 || rect.top > window.innerHeight) {
-                      setShowLeftContact(false);
-                  }
-              }
-  
-              if (showRightContact && rightContactElement) {
-                  const rect = rightContactElement.getBoundingClientRect();
-                  if (rect.bottom < 0 || rect.top > window.innerHeight) {
-                      setShowRightContact(false);
-                  }
-              }
-          } else {
-              // Scrolling up
-              if (!showLeftContact && leftContactElement) {
-                  const rect = leftContactElement.getBoundingClientRect();
-                  if (rect.bottom > 0 && rect.top < window.innerHeight) {
-                      setShowLeftContact(true);
-                  }
-              }
-  
-              if (!showRightContact && rightContactElement) {
-                  const rect = rightContactElement.getBoundingClientRect();
-                  if (rect.bottom > 0 && rect.top < window.innerHeight) {
-                      setShowRightContact(true);
-                  }
-              }
-          }
-  
-          lastScrollTop = scrollTop;
-      };
-  
-      window.addEventListener('scroll', handleScroll);
-  
-      return () => {
-          window.removeEventListener('scroll', handleScroll);
-      };
-  }, [showLeftContact, showRightContact]);
+        const handleScroll = () => {
+            const leftContactElement = document.querySelector('.left');
+            const rightContactElement = document.querySelector('.right');
+    
+            if (showLeftContact && leftContactElement) {
+                const rect = leftContactElement.getBoundingClientRect();
+                if (rect.bottom < 0 || rect.top > window.innerHeight) {
+                    setShowLeftContact(false);
+                }
+            }
+    
+            if (showRightContact && rightContactElement) {
+                const rect = rightContactElement.getBoundingClientRect();
+                if (rect.bottom < 0 || rect.top > window.innerHeight) {
+                    setShowRightContact(false);
+                }
+            }
+        };
+    
+        window.addEventListener('scroll', handleScroll);
+    
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        };
+    }, [showLeftContact, showRightContact]);
+    
   
   
 
