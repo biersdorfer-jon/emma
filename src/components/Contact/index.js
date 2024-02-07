@@ -307,7 +307,7 @@ const Contact = () => {
     e.preventDefault();
     
   
-    emailjs.sendForm('service_wxsoqzt', 'template_pi0v7sp', form.current, 'aB_HJVmmrkINkTDHZ')
+    emailjs.sendForm('service_q9bi7e9', 'template_6jhis1s', form.current, 'uc1CyzydfkNsG1RIr')
       .then((result) => {
           console.log(result.text);
           setIsMessageSent(true);
