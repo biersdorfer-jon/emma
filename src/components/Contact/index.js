@@ -219,7 +219,7 @@ const Contact = () => {
   const sendEmail = (e) => {
     e.preventDefault();
   
-    emailjs.sendForm('service_1qa9c9m', 'template_pi0v7sp', form.current, 'aB_HJVmmrkINkTDHZ')
+    emailjs.sendForm('service_wxsoqzt', 'template_pi0v7sp', form.current, 'aB_HJVmmrkINkTDHZ')
       .then((result) => {
           console.log(result.text);
           // Clear the form fields upon successful submission
