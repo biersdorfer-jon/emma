@@ -224,7 +224,7 @@ const PopDesc = styled.div`
 
 
 const PopButton = styled.a`
-  width: 60px;
+  width: 70px;
   height: 25px;
   margin-top: 20px;
   padding-top: 3px;
@@ -267,6 +267,10 @@ const Popup = styled.div`
     justify-content: center;
     background: white;
   }
+
+  @media (max-width: 500px) {
+    width: 75%;
+  }
 `;
 
 const PopBack = styled.div`
@@ -281,6 +285,11 @@ const PopBack = styled.div`
     background: rgba(255, 255, 255, 0.5); /* White with 50% opacity */
     backdrop-filter: blur(10px); /* Adjust the blur radius as needed */
     z-index: 9; /* Ensure the blurred background is behind the popup */
+  }
+
+  @media (max-width: 500px) {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(10px);
   }
 `;
 
