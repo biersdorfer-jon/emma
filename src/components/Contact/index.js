@@ -1,9 +1,11 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import styled from 'styled-components';
 import emailjs from '@emailjs/browser';
 import './form.css';
 import { gsap } from "gsap/dist/gsap";
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
+import { FaCheckCircle } from "react-icons/fa";
+
 
 const Container =styled.div`
     width: 100%;
@@ -211,17 +213,95 @@ transition: all 0.4s ease;
 
 `;
 
+const PopDesc = styled.div`
+  padding-top: 15px;  
+  color: #000;
+  text-align: center;
+  font-size: 16px;
+  font-weight: 400;
+  width: 70%
+`;
+
+
+const PopButton = styled.a`
+  width: 60px;
+  height: 25px;
+  margin-top: 20px;
+  padding-top: 3px;
+  text-align: center;
+  font-size: 16px;
+  background: #b41010;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  border: 1px solid #b41010;
+  transition: all 0.4s ease;
+
+  &:hover{
+    transform:scale(.9);
+  }
+`;
+
+const Popup = styled.div`
+  position: fixed;
+  top: 0; /* Adjust this value as needed */
+  left: 50%;
+  width: 400px;
+  z-index: 10;  
+  height: 20%;
+  transform: translateX(-50%);
+  background-color: white;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 20px;
+  border-radius: 5px ;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+
+  @media (max-width: 760px) {
+    width: 50%;
+    height: 200px;
+    top: 35%;
+    align-items: center;
+    justify-content: center;
+    background: white;
+  }
+`;
+
+const PopBack = styled.div`
+  background: transparent;
+
+  @media (max-width: 760px) {
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: rgba(255, 255, 255, 0.5); /* White with 50% opacity */
+    backdrop-filter: blur(10px); /* Adjust the blur radius as needed */
+    z-index: 9; /* Ensure the blurred background is behind the popup */
+  }
+`;
+
+
+
+
+
+
 
 const Contact = () => {
 
   const form = useRef();
-
+  const [isMessageSent, setIsMessageSent] = useState(false);
   const sendEmail = (e) => {
     e.preventDefault();
+    
   
     emailjs.sendForm('service_wxsoqzt', 'template_pi0v7sp', form.current, 'aB_HJVmmrkINkTDHZ')
       .then((result) => {
           console.log(result.text);
+          setIsMessageSent(true);
           // Clear the form fields upon successful submission
           form.current.reset();
       })
@@ -275,12 +355,22 @@ const Contact = () => {
       </FormConatainer>
       
       </ContactContainer>
+      
+
       <ImageContainer>
         <Image src={require('../../images/office.jpg')} />
       </ImageContainer>
 
       </InnerContainer>
-    
+      {isMessageSent && (
+        <PopBack>
+          <Popup>
+            <FaCheckCircle style={{color: '#b41010', fontSize: '40px',}}/>
+            <PopDesc>Your message has successfully been sent!</PopDesc>
+            <PopButton onClick={() => setIsMessageSent(false)}>Close</PopButton>
+          </Popup>
+        </PopBack>
+        )}
     </Container>
 
     
